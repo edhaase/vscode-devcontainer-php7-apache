@@ -1,0 +1,14 @@
+{
+    "name": "root/html",
+    "authors": [
+        {
+            "name": "Edward Haase",
+            "email": "edward.r.haase@gmail.com"
+        }
+    ],
+    "require": {        
+	},
+	"require-dev": {
+        "jokkedk/webgrind": "^1.6"
+    }
+}

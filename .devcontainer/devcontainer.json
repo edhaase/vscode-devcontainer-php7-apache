@@ -1,0 +1,19 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+	"name": "PHP 7 with Apache",
+	"dockerFile": "Dockerfile",
+		
+	"appPort": [80],
+	"workspaceMount": "src=${localWorkspaceFolder},dst=/var/www/html,type=bind,consistency=cached",
+	"workspaceFolder": "/var/www/html",
+	// Uncomment the next line if you want to add in default container specific settings.json values
+	// "settings":  { "workbench.colorTheme": "Quiet Light" },
+
+	// On startup we need to link our custom conf file and launch apache
+	"postCreateCommand": "ln -s /var/www/html/.devcontainer/sites-enabled /etc/apache2/sites-enabled && service apache2 start ",
+
+	"extensions": [
+		"felixfbecker.php-debug",
+		"felixfbecker.php-intellisense"
+	]
+}
