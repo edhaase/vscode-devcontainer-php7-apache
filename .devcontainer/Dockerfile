@@ -10,7 +10,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Configure apt and install packages
 RUN apt-get update \
-    && apt-get -y install --no-install-recommends apt-utils zip unzip nano ncdu graphviz 2>&1 \
+    && apt-get -y install --no-install-recommends apt-utils zip unzip nano ncdu 2>&1 \
+	#
+	# Webgrind prereqs
+	&& apt-get -y install --no-install-recommends python graphviz 2>&1 \
     #
     # Install git, procps, lsb-release (useful for CLI installs)
     && apt-get -y install git procps lsb-release \
