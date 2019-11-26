@@ -1,14 +1,18 @@
 {
-    "name": "root/html",
-    "authors": [
-        {
-            "name": "Edward Haase",
-            "email": "edward.r.haase@gmail.com"
-        }
-    ],
-    "require": {        
-	},
+	"name": "root/html",
+	"authors": [
+		{
+			"name": "Edward Haase",
+			"email": "edward.r.haase@gmail.com"
+		}
+	],
+	"require": {},
 	"require-dev": {
-        "jokkedk/webgrind": "^1.6"
-    }
+		"jokkedk/webgrind": "^1.6",
+		"squizlabs/php_codesniffer": "^2.5"
+	},
+	"scripts": {
+		"cs": "phpcs --standard=PSR2 public/ src/ || true",
+		"cbf": "phpcbf --standard=PSR2 public/ src/ || true"
+	}
 }

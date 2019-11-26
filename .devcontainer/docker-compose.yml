@@ -1,0 +1,23 @@
+version: "3"
+services:
+  web:
+    # Uncomment the next line to use a non-root user. On Linux, this will prevent
+    # new files getting created as root, but you may need to update the USER_UID
+    # and USER_GID in .devcontainer/Dockerfile to match your user if not 1000.
+    # user: vscode
+    # Using a Dockerfile is optional, but included for completeness.
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      # This is where VS Code should expect to find your project's source code
+      # and the value of "workspaceFolder" in .devcontainer/devcontainer.json
+      - ..:/var/www/html
+      - vendor:/var/www/html/vendor      
+    # Overrides default command so things don't shut down after the process ends.
+    command: /bin/sh -c "service apache2 start && while sleep 1000; do :; done"
+volumes:
+  # Named volume to speed up dependency download and reduce clutter in project folder
+  vendor:
